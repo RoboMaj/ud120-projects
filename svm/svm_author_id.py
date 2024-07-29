@@ -18,7 +18,19 @@ from email_preprocess import preprocess
 ### and testing datasets, respectively
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
+# Create an SVM classifier
+clf = SVC(kernel='linear')
 
+# Train the SVM model
+clf.fit(features_train, labels_train)
+
+# Make predictions on the test set
+predictions = clf.predict(features_test)
+
+# Calculate the accuracy of the model
+accuracy = accuracy_score(labels_test, predictions)
+
+print("Accuracy of the SVM model:", accuracy)
 
 #########################################################
 ### your code goes here ###
